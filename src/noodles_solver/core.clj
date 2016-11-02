@@ -34,7 +34,8 @@
   (set/subset? incls orientation))
 
 (defn satisfies-constraints? [constraints orientation]
-  "Returns true if a piece's orientation points in all required directions
+  "Returns true if a piece's orientation satisfies all constraints,
+  that is, it points in all required directions
   and does not point in any excluded directions"
   (let [{excls :forbidden incls :required} constraints]
     (and
