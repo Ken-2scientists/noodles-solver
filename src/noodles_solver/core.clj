@@ -42,6 +42,35 @@
       (has-required? incls orientation)
       (has-no-forbidden? excls orientation))))
 
+(defrecord piece [type orientation])
+(defrecord loc [x y])
+
+(def game
+  { (->loc 1 1) (->piece :cap #{:w})
+    (->loc 2 1) (->piece :tee #{:s :w :n})
+    (->loc 3 1) (->piece :tee #{:w :n :e})
+    (->loc 4 1) (->piece :line #{:n :s})
+    (->loc 5 1) (->piece :cap #{:s})
+    (->loc 1 2) (->piece :corner #{:s :w})
+    (->loc 2 2) (->piece :tee #{:e :s :w})
+    (->loc 3 2) (->piece :tee #{:s :w :n})
+    (->loc 4 2) (->piece :line #{:n :s})
+    (->loc 5 2) (->piece :corner #{:e :s})
+    (->loc 1 3) (->piece :line #{:e :w})
+    (->loc 2 3) (->piece :cap #{:s})
+    (->loc 3 3) (->piece :corner #{:s :w})
+    (->loc 4 3) (->piece :corner #{:w :n})
+    (->loc 5 3) (->piece :cap #{:s})
+    (->loc 1 4) (->piece :tee #{:w :n :e})
+    (->loc 2 4) (->piece :tee #{:n :e :s})
+    (->loc 3 4) (->piece :corner #{:e :s})
+    (->loc 4 4) (->piece :tee #{:s :w :n})
+    (->loc 5 4) (->piece :corner #{:e :s})
+    (->loc 1 5) (->piece :cap #{:e})
+    (->loc 2 5) (->piece :cap #{:s})
+    (->loc 3 5) (->piece :cap #{:w})
+    (->loc 4 5) (->piece :cap #{:s})
+    (->loc 5 5) (->piece :cap #{:w})})
 
 
 (defn -main
